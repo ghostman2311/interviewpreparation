@@ -1,24 +1,21 @@
-const arr = [1, 2, 3];
+//Input: s = "egg", t = "add"
+//Output: true
 
-const findPivotIndex = (arr) => {
-  let lhs = 0;
-  let rhs = arr.reduce((acc, curr) => {
-    return curr + acc;
+let arr = [7, 5, 2, 1, 0, 2, 3];
+
+//Output should be [7,5,2,2,1,0,0,2,2,3]
+
+const duplicates = (arr) => {
+  const map = new Map();
+  const result = arr.some((item) => {
+    if (map.has(item)) {
+      return true;
+    }
+    map.set(item, true);
   });
 
-  let i = 0;
-
-  while (i < arr.length) {
-    lhs += arr[i];
-    if (lhs === rhs) {
-      return i;
-    }
-
-    rhs -= arr[i];
-    i++;
-  }
-
-  return -1;
+  if (result) return result;
+  return false;
 };
 
-console.log(findPivotIndex(arr));
+console.log(duplicates(arr));
