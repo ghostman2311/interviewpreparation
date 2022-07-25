@@ -1,25 +1,24 @@
 //Input: s = "egg", t = "add"
 //Output: true
 
-let strs = ["flower", "flow", "flight"];
-
+let nums = [1, 7, 3, 6, 5, 6];
 //Output should be [7,5,2,2,1,0,0,2,2,3]
 
-const longestCommon = (strs) => {
-  if (strs.length === 0 || strs == null) {
-    return "";
-  }
-  strs.sort();
+const pivotIndex = (nums) => {
+  let lhs = 0;
+  let rhs = nums.reduce((acc, curr) => acc + curr);
+
   let i = 0;
-  while (i < strs[0].length) {
-    if (strs[0][i] !== strs[strs.length - 1][i]) {
-      return strs[0].substring(0, i);
+  for (; i < nums.length; i++) {
+    lhs = lhs + nums[i];
+    if (lhs === rhs) {
+      return i;
     }
 
-    i++;
+    rhs = rhs - nums[i];
   }
 
-  return strs[0];
+  return -1;
 };
 
-console.log(longestCommon(strs));
+console.log(pivotIndex(nums));
