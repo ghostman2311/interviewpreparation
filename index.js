@@ -1,21 +1,25 @@
 //Input: s = "egg", t = "add"
 //Output: true
 
-let arr = [7, 5, 2, 1, 0, 2, 3];
+let strs = ["flower", "flow", "flight"];
 
 //Output should be [7,5,2,2,1,0,0,2,2,3]
 
-const duplicates = (arr) => {
-  const map = new Map();
-  const result = arr.some((item) => {
-    if (map.has(item)) {
-      return true;
+const longestCommon = (strs) => {
+  if (strs.length === 0 || strs == null) {
+    return "";
+  }
+  strs.sort();
+  let i = 0;
+  while (i < strs[0].length) {
+    if (strs[0][i] !== strs[strs.length - 1][i]) {
+      return strs[0].substring(0, i);
     }
-    map.set(item, true);
-  });
 
-  if (result) return result;
-  return false;
+    i++;
+  }
+
+  return strs[0];
 };
 
-console.log(duplicates(arr));
+console.log(longestCommon(strs));
