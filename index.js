@@ -1,24 +1,32 @@
 //Input: s = "egg", t = "add"
 //Output: true
 
-let nums = [1, 7, 3, 6, 5, 6];
-//Output should be [7,5,2,2,1,0,0,2,2,3]
+let nums = [1, 4, 5, 4, 4, 6, 2, 3, 1];
+let pivot = 4;
 
-const pivotIndex = (nums) => {
-  let lhs = 0;
-  let rhs = nums.reduce((acc, curr) => acc + curr);
+function swap(a, i, j) {
+  let temp = a[i];
+  a[i] = a[j];
+  a[j] = temp;
+}
 
+const dutchNationalFlag = (nums, pivot) => {
+  let lowBoundary = 0;
+  let highBoundary = nums.length - 1;
   let i = 0;
-  for (; i < nums.length; i++) {
-    lhs = lhs + nums[i];
-    if (lhs === rhs) {
-      return i;
+  while (i <= highBoundary) {
+    if (nums[i] < pivot) {
+      swap(nums, i, lowBoundary);
+      lowBoundary++;
+      i++;
+    } else if (nums[i] > pivot) {
+      swap(nums, i, highBoundary);
+      highBoundary--;
+    } else {
+      i++;
     }
-
-    rhs = rhs - nums[i];
   }
-
-  return -1;
+  console.log(nums);
 };
 
-console.log(pivotIndex(nums));
+console.log(dutchNationalFlag(nums, pivot));
