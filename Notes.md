@@ -1,2 +1,1 @@
-## Time Complexity using brute force is O(n^2);
-
+## Initially we are having two pointer which points to first element of the array, Then if sum < target we will increment the end pointer else if sum > target we will increment the start pointer else whenver sum === target we will return the start and end pointer.
