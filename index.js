@@ -1,18 +1,24 @@
 let nums = [-2, -3, 4, -1, -2, 1, 5, -1];
 
-const maxSubArraySum = (nums) => {
-  let max = nums[0];
-  for (let i = 0; i < nums.length; i++) {
-    let total = nums[i];
-    for (let j = i + 1; j < nums.length; j++) {
-      total = total + nums[j];
-    }
-    if (total > max) {
-      max = total;
-    }
+function max(i, j) {
+  if (i > j) {
+    return i;
   }
 
-  return max;
+  return j;
+}
+
+const kadaneAlgo = (nums) => {
+  let result = nums[0];
+  let maxEndingHere = nums[0];
+
+  for (let i = 1; i < nums.length; i++) {
+    maxEndingHere = max(nums[i], maxEndingHere + nums[i]);
+    if (result < maxEndingHere) {
+      result = maxEndingHere;
+    }
+  }
+  return result;
 };
 
-console.log(maxSubArraySum(nums));
+console.log(kadaneAlgo(nums));
