@@ -1,19 +1,22 @@
-let nums = [5, 3, 1, 7, 6, 4, 2, 3];
+let nums = [2, 4, 1, 0, 3];
 
-const slidingWindow = (nums, target) => {
-  let sum = nums[0];
-  let start = 0;
-  let end = 0;
+function replaceEven(nums) {
+  let i = nums.length - 1;
+  let res = [...nums, -1, -1, -1];
+  let j = res.length;
 
-  while (end < nums.length - 1) {
-    if (sum < target) {
-      sum = sum + nums[++end];
-    } else if (sum > target) {
-      sum = sum - nums[start++];
-    } else return [start, end];
-
-    console.log(sum, start, end);
+  while (i >= 0) {
+    if (nums[i] % 2 === 0) {
+      res[--j] = nums[i];
+      res[--j] = nums[i];
+    } else {
+      j--;
+      res[j] = nums[i];
+    }
+    i--;
   }
-};
 
-console.log(slidingWindow(nums, 14));
+  return res;
+}
+
+console.log(replaceEven(nums));
