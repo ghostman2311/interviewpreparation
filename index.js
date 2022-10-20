@@ -1,22 +1,12 @@
-let nums = [2, 4, 1, 0, 3];
+let nums = [1, 1, 1, 1, 1];
 
-function replaceEven(nums) {
-  let i = nums.length - 1;
-  let res = [...nums, -1, -1, -1];
-  let j = res.length;
-
-  while (i >= 0) {
-    if (nums[i] % 2 === 0) {
-      res[--j] = nums[i];
-      res[--j] = nums[i];
-    } else {
-      j--;
-      res[j] = nums[i];
-    }
-    i--;
+function runningSum() {
+  let sum = nums[0];
+  for (let i = 1; i < nums.length; i++) {
+    nums[i] = nums[i] + sum;
+    sum = nums[i];
   }
-
-  return res;
+  return nums;
 }
 
-console.log(replaceEven(nums));
+console.log(runningSum());
