@@ -1,5 +1,9 @@
-## How does sliding window works, please work with copy and pen.
+## 20 Oct
 
-## [5,3,1,7,6,4,2,3], Please run sliding window on this problem.
+1. Find a subarray that sum to a target(an positive integer).
+   [5,3,1,7,6,4,2,3]
 
-## Describe the corner case of this algorithm.
+## 22 Oct
+
+1. Find a subarray that sums to 0 (positive, negative)
+   [-1,2,1,-4,2,3,-1,2]

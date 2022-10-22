@@ -1,28 +1,19 @@
-// Input: nums = [1,7,3,6,5,6]
-// Output: 3
-// Explanation:
-// The pivot index is 3.
-// Left sum = nums[0] + nums[1] + nums[2] = 1 + 7 + 3 = 11
-// Right sum = nums[4] + nums[5] = 5 + 6 = 11
-
-let nums = [1, 7, 3, 6, 5, 6];
-function pivtotIndex() {
-  let left = 0;
-  let currentWeight;
-  let right = nums.reduce((acc, curr) => acc + curr),
-    i = 0;
-  while (i < nums.length) {
-    currentWeight = nums[i];
-    right = right - currentWeight;
-    if (left === right) {
-      return i;
+let nums = [-9, 2, 1, -4, 2, 3, -1, 2];
+function prefixSum() {
+  let sum = 0;
+  const map = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    sum += nums[i];
+    if (sum === 0) {
+      return [0, i];
+    } else if (map.has(sum)) {
+      return [map.get(sum) + 1, i];
+    } else {
+      map.set(sum, i);
     }
-
-    left = left + currentWeight;
-    i++;
   }
 
-  return -1;
+  return null;
 }
 
-console.log(pivtotIndex());
+console.log(prefixSum());
