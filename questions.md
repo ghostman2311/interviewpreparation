@@ -14,3 +14,8 @@
 3. Number of ways for scaling web aplication? define each one of them.
 4. Horizontal scaling detailed diagram.
 5. How to approach system design interviews?
+
+## 25 Oct
+
+1. Find a subarray that sums to X(+ve, -ve)(\*)
+   [2, 4, -2, 1, -3, 5, -3]
