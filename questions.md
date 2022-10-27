@@ -25,3 +25,14 @@
 3.
 4. Find the subarray with maximum sum
    [-2,-3,4,-1, -2,1,5,-1] using Kadane's(\*)
+
+## 27 Oct
+
+1. Given two strings s and t, determine if they are isomorphic.
+
+Two strings s and t are isomorphic if the characters in s can be replaced to get t.
+
+All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character, but a character may map to itself.
+
+Input: s = "egg", t = "add"
+Output: true
