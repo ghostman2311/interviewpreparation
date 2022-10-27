@@ -19,3 +19,9 @@
 
 1. Find a subarray that sums to X(+ve, -ve)(\*)
    [2, 4, -2, 1, -3, 5, -3]
+
+2. Find the subarray with maximum sum
+   [-2,-3,4,-1, -2,1,5,-1] using brute force(\*)
+3.
+4. Find the subarray with maximum sum
+   [-2,-3,4,-1, -2,1,5,-1] using Kadane's(\*)
